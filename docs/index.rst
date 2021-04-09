@@ -21,12 +21,10 @@ State of the project
 
 Currently, I have prototyped some connectors with promising results, the mechanical design is reaching a point were i can declare it ready.
 
-Right now I am working on the pcb that goes inside the connector, it's very simple, it's purpose will be holdint the pogo pins in place, as well as mate the cable to the pogo pins,
- this is very simple and should be doable in a days work.
+Right now I am working on the pcb that goes inside the connector, it's very simple, it's purpose will be holding the pogo pins in place, as well as mate the cable to the pogo pins,
+ this should be doable in a days work.
 
-After this, they should be ready for the masses :smile:
-
-Footprints are planned to be provided
+After this, they should be ready for the masses (:
 
 .. admonition:: Roadmap
 
@@ -37,7 +35,6 @@ Footprints are planned to be provided
    - Snap-less holding solution (flexible material? pcb with sockets?)
    - clean up the OpenSCAD scripts
    - Compile a cheat sheet of recomended connections
-
 
 
 Early prototypes
