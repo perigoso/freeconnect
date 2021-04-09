@@ -85,7 +85,7 @@ module body_bot(columns, body_height, plug_height, spacing, dowel_heigth, dowel_
 
             pogo_array(columns, spacing, pogo_height, pogo_diameter + tolerance, pogo_pertusion);
             dowels(dowel_heigth, dowel_diameter + tolerance, columns, spacing, dowel_y_spacing, dowel_pertrusion);
-            translate([0, 0, 10]) pcb(columns, pogo_diameter, 10, spacing, tolerance);
+            translate([0, 0, body_height - 1]) pcb(columns, 10, spacing, tolerance);
         }
     }
 
@@ -130,7 +130,7 @@ module body_top(columns, body_height, plug_height, spacing, dowel_heigth, dowel_
             translate([(columns-1)*spacing/2, spacing/2, 0])
                 roundedRect([columns*spacing + tolerance, 2*spacing + tolerance, body_height], 0.5);
 
-            translate([0, 0, -1]) pcb(columns, pogo_diameter, body_height, spacing, tolerance);
+            translate([0, 0, -1]) pcb(columns, 10, spacing, tolerance);
         }
     }
 
