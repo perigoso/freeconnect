@@ -43,6 +43,8 @@ Early prototypes
 .. image:: assets/early_prototype.jpg
   :width: 800
 
+.. image:: assets/sbs.jpg
+  :width: 800
 
 Mechanical design
 -----------------
