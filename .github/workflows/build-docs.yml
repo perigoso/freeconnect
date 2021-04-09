@@ -1,0 +1,63 @@
+name: build-docs
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+    steps:
+      - name: Get date
+        id: date
+        run: echo "::set-output name=date::$(date +%F)"
+
+      - name: Cache
+        uses: actions/cache@v1
+        with:
+          path: /var/cache/pacman/pkg
+          key: arch-pkgs-${{ steps.date.outputs.date }}
+          restore-keys: arch-pkgs
+
+      - name: Update system and install dependencies
+        run: pacman -Syu --noconfirm --noprogressbar --needed python-sphinx python-sphinx-furo python-sphinx-autodoc-typehints git
+
+      - name: Checkout build branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          path: build
+
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: deploy
+
+      - name: Generate website
+        run: |
+          cd "$GITHUB_WORKSPACE"/build
+          rm -rf "$GITHUB_WORKSPACE"/deploy/*
+          sphinx-build -b html "$GITHUB_WORKSPACE"/build/docs/ "$GITHUB_WORKSPACE"/deploy/
+          touch "$GITHUB_WORKSPACE"/deploy/.nojekyll
+      - name: Setup git
+        run: |
+          git config --global user.email actions@github.com
+          git config --global user.name 'Github Actions'
+          git config --global core.editor true
+      - name: Commit packages
+        run: |
+          cd "$GITHUB_WORKSPACE"/deploy
+          git add -u
+          git add *
+          git commit --fixup HEAD || true
+          git rebase -i --autosquash --root
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          directory: deploy
+          force: true
