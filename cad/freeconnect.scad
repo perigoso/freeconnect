@@ -52,30 +52,30 @@ module body_bot(columns, body_height, plug_height, spacing, dowel_heigth, dowel_
         {
             translate([(columns-1)*spacing/2, spacing/2, 0])
             {
-                roundedRect([(columns+1)*spacing + 2, (2*dowel_y_spacing) + dowel_diameter + 0.5, body_height], 0.5);
+                roundedRect([(columns+1)*spacing + 3, (2*dowel_y_spacing) + dowel_diameter + 1.5, body_height], 0.5);
 
-                translate([(-((columns+1)*spacing + 2)/2)+0.25, 0, body_height])
+                translate([(-((columns+1)*spacing + 2)/2), 0, body_height])
                 {
                     linear_extrude(plug_height - 1)
-                        square([0.5,2], center=true);
+                        square([1,2], center=true);
                     translate([.5, 0, plug_height - .75])
                     difference()
                     {
-                        cube([1.5, 2, 1.5], center=true);
+                        cube(2, center=true);
                         rotate([0, 45, 0])
                         linear_extrude(3)
                         square(3, center=true);
                     }
                 }
 
-                translate([(((columns+1)*spacing + 2)/2)-0.25, 0, body_height])
+                translate([(((columns+1)*spacing + 2)/2), 0, body_height])
                 {
                     linear_extrude(plug_height - 1)
-                        square([0.5,2], center=true);
+                        square([1,2], center=true);
                     translate([-.5, 0, plug_height - 0.75])
                     difference()
                     {
-                        cube([1.5, 2, 1.5], center=true);
+                        cube(2, center=true);
                         rotate([0, -45, 0])
                         linear_extrude(3)
                         square(3, center=true);
@@ -93,33 +93,33 @@ module body_top(columns, body_height, plug_height, spacing, dowel_heigth, dowel_
         difference()
         {
             translate([(columns-1)*spacing/2, spacing/2, 0])
-                roundedRect([(columns+1)*spacing + 2, (2*dowel_y_spacing) + dowel_diameter + 0.5, body_height], 0.5);
+                roundedRect([(columns+1)*spacing + 3, (2*dowel_y_spacing) + dowel_diameter + 1.5, body_height], 0.5);
 
             translate([(columns-1)*spacing/2, spacing/2, 0])
             {
 
-                translate([(-((columns+1)*spacing + 2)/2) + 0.25, 0, 0])
+                translate([(-((columns+1)*spacing + 2)/2), 0, 0])
                 {
                     linear_extrude(plug_height - 1)
-                        square([0.5, 2 + tolerance], center=true);
+                        square([1, 2 + tolerance], center=true);
                     translate([.5, 0, plug_height - .75])
                     difference()
                     {
-                        cube([1.5 + tolerance, 2 + tolerance, 1.5 + tolerance], center=true);
+                        cube(2 + tolerance, center=true);
                         translate([0, 0, tolerance]) rotate([0, 45, 0])
                         linear_extrude(3)
                         square(3, center=true);
                     }
                 }
 
-                translate([(((columns+1)*spacing + 2)/2)-0.25, 0, 0])
+                translate([(((columns+1)*spacing + 2)/2), 0, 0])
                 {
                     linear_extrude(plug_height - 1)
-                        square([0.5, 2 + tolerance], center=true);
+                        square([1, 2 + tolerance], center=true);
                     translate([-.5, 0, plug_height - .75])
                     difference()
                     {
-                        cube([1.5 + tolerance, 2 + tolerance, 1.5 + tolerance], center=true);
+                        cube(2 + tolerance, center=true);
                         translate([0, 0, tolerance]) rotate([0, -45, 0])
                         linear_extrude(3)
                         square(3, center=true);
