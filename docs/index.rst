@@ -19,12 +19,11 @@ Planned is also a cheat sheet of connections for the various connectors and appl
 State of the project
 ====================
 
-Currently, I have prototyped some connectors with promising results, the mechanical design is reaching a point were i can declare it ready.
+I have prototyped connectors with 6 and 10 connections, with very positive results.
 
-Right now I am working on the pcb that goes inside the connector, it's very simple, it's purpose will be holding the pogo pins in place, as well as mate the cable to the pogo pins,
- this should be doable in a days work.
+The internal pcbs were made with 2 layers, which made it impossible to do odd-even pinout, 4 layer is a consideration, but the 0.6mm thickness is a requirement making this a slighlty harder problem.
 
-After this, they should be ready for the masses (:
+As is the connectors are ready for early adopters, improvements need to be made.
 
 .. admonition:: Roadmap
 
@@ -44,6 +43,12 @@ Early prototypes
   :width: 800
 
 .. image:: assets/sbs.jpg
+  :width: 800
+
+.. image:: assets/first_working_prototypes_.jpg
+  :width: 800
+
+.. image:: assets/first_working_prototypes.jpg
   :width: 800
 
 Mechanical design
@@ -70,7 +75,7 @@ Stack up
   :width: 800
 
 
-Available Solutions
+Available Solutions (planned)
 -------------------
 
 +------------+---------+-----------+
